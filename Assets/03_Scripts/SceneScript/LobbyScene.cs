@@ -26,8 +26,10 @@ public class LobbyScene : MonoBehaviour
 	[Header("Setting_Script")]
 	[SerializeField] private UIOption uiOption;
 	[SerializeField] private UIStage uiStage;
+	[SerializeField] private UITextBox textBox;
 
 	private WaitForSeconds fadeOutWait;
+
 
 
 	#region Awake Start Update Reset
@@ -42,6 +44,9 @@ public class LobbyScene : MonoBehaviour
 
 		OnReset();
 		sceneFade.StartFadeIn(fadeInTime);
+
+		textBox.OnInit("Lobby01");
+		textBox.PlayText();
 	}
 
 
@@ -80,6 +85,7 @@ public class LobbyScene : MonoBehaviour
 	{
 		btnTown.interactable = false;
 		StartCoroutine(FadeOutActionGoTown());
+		//textBox.OnOffTextBox(true);
 	}
 
 	public void OnQuestView()
